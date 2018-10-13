@@ -27,4 +27,14 @@ public interface YtoLoginDao {
     int updateByPrimaryKeySelective(YtoLogin record);
 
     int updateByPrimaryKey(YtoLogin record);
+
+    /**
+     * 根据手机号和密码登陆
+     * @param phone
+     * @param password
+     * @return
+     */
+    YtoLogin selectByPhonePass(@Param("phone") String phone ,@Param("password") String password);
+
+
 }

@@ -357,53 +357,133 @@ public class YtoLoginQuery {
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberEqualTo(Long value) {
+        public Criteria andLoginPhoneNumberEqualTo(String value) {
             addCriterion("login_phone_number =", value, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberNotEqualTo(Long value) {
+        public Criteria andLoginPhoneNumberNotEqualTo(String value) {
             addCriterion("login_phone_number <>", value, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberGreaterThan(Long value) {
+        public Criteria andLoginPhoneNumberGreaterThan(String value) {
             addCriterion("login_phone_number >", value, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberGreaterThanOrEqualTo(Long value) {
+        public Criteria andLoginPhoneNumberGreaterThanOrEqualTo(String value) {
             addCriterion("login_phone_number >=", value, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberLessThan(Long value) {
+        public Criteria andLoginPhoneNumberLessThan(String value) {
             addCriterion("login_phone_number <", value, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberLessThanOrEqualTo(Long value) {
+        public Criteria andLoginPhoneNumberLessThanOrEqualTo(String value) {
             addCriterion("login_phone_number <=", value, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberIn(List<Long> values) {
+        public Criteria andLoginPhoneNumberLike(String value) {
+            addCriterion("login_phone_number like", value, "loginPhoneNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginPhoneNumberNotLike(String value) {
+            addCriterion("login_phone_number not like", value, "loginPhoneNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginPhoneNumberIn(List<String> values) {
             addCriterion("login_phone_number in", values, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberNotIn(List<Long> values) {
+        public Criteria andLoginPhoneNumberNotIn(List<String> values) {
             addCriterion("login_phone_number not in", values, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberBetween(Long value1, Long value2) {
+        public Criteria andLoginPhoneNumberBetween(String value1, String value2) {
             addCriterion("login_phone_number between", value1, value2, "loginPhoneNumber");
             return (Criteria) this;
         }
 
-        public Criteria andLoginPhoneNumberNotBetween(Long value1, Long value2) {
+        public Criteria andLoginPhoneNumberNotBetween(String value1, String value2) {
             addCriterion("login_phone_number not between", value1, value2, "loginPhoneNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailIsNull() {
+            addCriterion("login_email is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailIsNotNull() {
+            addCriterion("login_email is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailEqualTo(String value) {
+            addCriterion("login_email =", value, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailNotEqualTo(String value) {
+            addCriterion("login_email <>", value, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailGreaterThan(String value) {
+            addCriterion("login_email >", value, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailGreaterThanOrEqualTo(String value) {
+            addCriterion("login_email >=", value, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailLessThan(String value) {
+            addCriterion("login_email <", value, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailLessThanOrEqualTo(String value) {
+            addCriterion("login_email <=", value, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailLike(String value) {
+            addCriterion("login_email like", value, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailNotLike(String value) {
+            addCriterion("login_email not like", value, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailIn(List<String> values) {
+            addCriterion("login_email in", values, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailNotIn(List<String> values) {
+            addCriterion("login_email not in", values, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailBetween(String value1, String value2) {
+            addCriterion("login_email between", value1, value2, "loginEmail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLoginEmailNotBetween(String value1, String value2) {
+            addCriterion("login_email not between", value1, value2, "loginEmail");
             return (Criteria) this;
         }
 

@@ -13,7 +13,7 @@ public class YtoLoginServiceImpl implements YtoLoginService {
     private YtoLoginDao ytoLoginDao;
 
     @Override
-    public int insert(YtoLogin record) {
-        return ytoLoginDao.insert(record);
+    public YtoLogin login(String phone, String password) {
+        return ytoLoginDao.selectByPhonePass(phone , password);
     }
 }

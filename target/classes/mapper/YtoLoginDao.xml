@@ -5,7 +5,8 @@
     <id column="login_id" property="loginId" jdbcType="BIGINT" />
     <result column="login_username" property="loginUsername" jdbcType="VARCHAR" />
     <result column="login_password" property="loginPassword" jdbcType="VARCHAR" />
-    <result column="login_phone_number" property="loginPhoneNumber" jdbcType="BIGINT" />
+    <result column="login_phone_number" property="loginPhoneNumber" jdbcType="VARCHAR" />
+    <result column="login_email" property="loginEmail" jdbcType="VARCHAR" />
     <result column="wechat_openid" property="wechatOpenid" jdbcType="VARCHAR" />
     <result column="header_url" property="headerUrl" jdbcType="VARCHAR" />
     <result column="user_type" property="userType" jdbcType="INTEGER" />
@@ -72,8 +73,8 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      login_id, login_username, login_password, login_phone_number, wechat_openid, header_url, 
-      user_type, create_time, update_time
+      login_id, login_username, login_password, login_phone_number, login_email, wechat_openid, 
+      header_url, user_type, create_time, update_time
     </if>
     <if test="fields != null" >
       ${fields}
@@ -98,7 +99,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
-    login_id,login_username,login_password,login_phone_number,wechat_openid,header_url,user_type,create_time,update_time
+    login_id,login_username,login_password,login_phone_number,login_email,wechat_openid,header_url,user_type,create_time,update_time
     from yto_login
     where login_id = #{loginId,jdbcType=BIGINT}
   </select>
@@ -114,13 +115,13 @@
   </delete>
   <insert id="insert" parameterType="yto.net.cn.bean.YtoLogin" >
     insert into yto_login (login_id, login_username, login_password, 
-      login_phone_number, wechat_openid, header_url, 
-      user_type, create_time, update_time
-      )
+      login_phone_number, login_email, wechat_openid, 
+      header_url, user_type, create_time, 
+      update_time)
     values (#{loginId,jdbcType=BIGINT}, #{loginUsername,jdbcType=VARCHAR}, #{loginPassword,jdbcType=VARCHAR}, 
-      #{loginPhoneNumber,jdbcType=BIGINT}, #{wechatOpenid,jdbcType=VARCHAR}, #{headerUrl,jdbcType=VARCHAR}, 
-      #{userType,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{loginPhoneNumber,jdbcType=VARCHAR}, #{loginEmail,jdbcType=VARCHAR}, #{wechatOpenid,jdbcType=VARCHAR}, 
+      #{headerUrl,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="yto.net.cn.bean.YtoLogin" >
     insert into yto_login
@@ -136,6 +137,9 @@
       </if>
       <if test="loginPhoneNumber != null" >
         login_phone_number,
+      </if>
+      <if test="loginEmail != null" >
+        login_email,
       </if>
       <if test="wechatOpenid != null" >
         wechat_openid,
@@ -164,7 +168,10 @@
         #{loginPassword,jdbcType=VARCHAR},
       </if>
       <if test="loginPhoneNumber != null" >
-        #{loginPhoneNumber,jdbcType=BIGINT},
+        #{loginPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="loginEmail != null" >
+        #{loginEmail,jdbcType=VARCHAR},
       </if>
       <if test="wechatOpenid != null" >
         #{wechatOpenid,jdbcType=VARCHAR},
@@ -202,7 +209,10 @@
         login_password = #{record.loginPassword,jdbcType=VARCHAR},
       </if>
       <if test="record.loginPhoneNumber != null" >
-        login_phone_number = #{record.loginPhoneNumber,jdbcType=BIGINT},
+        login_phone_number = #{record.loginPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginEmail != null" >
+        login_email = #{record.loginEmail,jdbcType=VARCHAR},
       </if>
       <if test="record.wechatOpenid != null" >
         wechat_openid = #{record.wechatOpenid,jdbcType=VARCHAR},
@@ -229,7 +239,8 @@
     set login_id = #{record.loginId,jdbcType=BIGINT},
       login_username = #{record.loginUsername,jdbcType=VARCHAR},
       login_password = #{record.loginPassword,jdbcType=VARCHAR},
-      login_phone_number = #{record.loginPhoneNumber,jdbcType=BIGINT},
+      login_phone_number = #{record.loginPhoneNumber,jdbcType=VARCHAR},
+      login_email = #{record.loginEmail,jdbcType=VARCHAR},
       wechat_openid = #{record.wechatOpenid,jdbcType=VARCHAR},
       header_url = #{record.headerUrl,jdbcType=VARCHAR},
       user_type = #{record.userType,jdbcType=INTEGER},
@@ -249,7 +260,10 @@
         login_password = #{loginPassword,jdbcType=VARCHAR},
       </if>
       <if test="loginPhoneNumber != null" >
-        login_phone_number = #{loginPhoneNumber,jdbcType=BIGINT},
+        login_phone_number = #{loginPhoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="loginEmail != null" >
+        login_email = #{loginEmail,jdbcType=VARCHAR},
       </if>
       <if test="wechatOpenid != null" >
         wechat_openid = #{wechatOpenid,jdbcType=VARCHAR},
@@ -273,7 +287,8 @@
     update yto_login
     set login_username = #{loginUsername,jdbcType=VARCHAR},
       login_password = #{loginPassword,jdbcType=VARCHAR},
-      login_phone_number = #{loginPhoneNumber,jdbcType=BIGINT},
+      login_phone_number = #{loginPhoneNumber,jdbcType=VARCHAR},
+      login_email = #{loginEmail,jdbcType=VARCHAR},
       wechat_openid = #{wechatOpenid,jdbcType=VARCHAR},
       header_url = #{headerUrl,jdbcType=VARCHAR},
       user_type = #{userType,jdbcType=INTEGER},
@@ -281,4 +296,13 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where login_id = #{loginId,jdbcType=BIGINT}
   </update>
+
+  <!--根据手机号和密码登陆-->
+  <select id="selectByPhonePass" parameterType="String" resultMap="BaseResultMap" >
+    select
+    login_id,login_username,login_password,login_phone_number,login_email,wechat_openid,header_url,user_type,create_time,update_time
+    from yto_login
+    where login_phone_number = #{phone} and login_password = #{password}
+  </select>
+
 </mapper>

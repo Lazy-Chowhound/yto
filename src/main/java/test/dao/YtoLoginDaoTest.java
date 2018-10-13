@@ -18,18 +18,8 @@ public class YtoLoginDaoTest {
     private YtoLoginDao ytoLoginDao;
 
     @Test
-    public void testInsert(){
-        YtoLogin ytoLogin = new YtoLogin();
-        ytoLogin.setCreateTime(new Date());
-        ytoLogin.setHeaderUrl("test");
-        ytoLogin.setLoginPassword("123");
-        ytoLogin.setLoginPhoneNumber(1234556L);
-        ytoLogin.setUpdateTime(new Date());
-        ytoLogin.setWechatOpenid("12243545");
-        ytoLogin.setUserType(1);
-        ytoLogin.setLoginUsername("test123");
-        int num = ytoLoginDao.insert(ytoLogin);
-        System.out.println("num = " + num);
+    public void testLogin(){
+        System.out.println(ytoLoginDao.selectByPhonePass("123456" , "123456"));
     }
 
 }

@@ -22,7 +22,12 @@ public class YtoLogin implements Serializable {
     /**
      * 登陆手机号
      */
-    private Long loginPhoneNumber;
+    private String loginPhoneNumber;
+
+    /**
+     * 邮箱
+     */
+    private String loginEmail;
 
     /**
      * 微信openid
@@ -75,12 +80,20 @@ public class YtoLogin implements Serializable {
         this.loginPassword = loginPassword == null ? null : loginPassword.trim();
     }
 
-    public Long getLoginPhoneNumber() {
+    public String getLoginPhoneNumber() {
         return loginPhoneNumber;
     }
 
-    public void setLoginPhoneNumber(Long loginPhoneNumber) {
-        this.loginPhoneNumber = loginPhoneNumber;
+    public void setLoginPhoneNumber(String loginPhoneNumber) {
+        this.loginPhoneNumber = loginPhoneNumber == null ? null : loginPhoneNumber.trim();
+    }
+
+    public String getLoginEmail() {
+        return loginEmail;
+    }
+
+    public void setLoginEmail(String loginEmail) {
+        this.loginEmail = loginEmail == null ? null : loginEmail.trim();
     }
 
     public String getWechatOpenid() {
@@ -133,6 +146,7 @@ public class YtoLogin implements Serializable {
         sb.append(", loginUsername=").append(loginUsername);
         sb.append(", loginPassword=").append(loginPassword);
         sb.append(", loginPhoneNumber=").append(loginPhoneNumber);
+        sb.append(", loginEmail=").append(loginEmail);
         sb.append(", wechatOpenid=").append(wechatOpenid);
         sb.append(", headerUrl=").append(headerUrl);
         sb.append(", userType=").append(userType);
