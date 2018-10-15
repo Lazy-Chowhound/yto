@@ -125,7 +125,7 @@
     values (#{workId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, 
       #{parentNum,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{sex,jdbcType=BIT}, 
       #{birth,jdbcType=DATE}, #{joinTime,jdbcType=TIMESTAMP}, #{workPlace,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{active,jdbcType=INTEGER}, 
+      now(), now(), #{active,jdbcType=INTEGER},
       #{loginId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="yto.net.cn.bean.WorkInfo" >
@@ -200,10 +200,10 @@
         #{workPlace,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+        now(),
       </if>
       <if test="updateTime != null" >
-        #{updateTime,jdbcType=TIMESTAMP},
+        now(),
       </if>
       <if test="active != null" >
         #{active,jdbcType=INTEGER},
@@ -250,10 +250,10 @@
         work_place = #{record.workPlace,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        create_time = now(),
       </if>
       <if test="record.updateTime != null" >
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+        update_time = now(),
       </if>
       <if test="record.active != null" >
         active = #{record.active,jdbcType=INTEGER},
@@ -277,8 +277,8 @@
       birth = #{record.birth,jdbcType=DATE},
       join_time = #{record.joinTime,jdbcType=TIMESTAMP},
       work_place = #{record.workPlace,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = now(),
+      update_time = now(),
       active = #{record.active,jdbcType=INTEGER},
       login_id = #{record.loginId,jdbcType=BIGINT}
     <if test="_parameter != null" >
@@ -313,10 +313,10 @@
         work_place = #{workPlace,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = now(),
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = now(),
       </if>
       <if test="active != null" >
         active = #{active,jdbcType=INTEGER},
@@ -337,8 +337,8 @@
       birth = #{birth,jdbcType=DATE},
       join_time = #{joinTime,jdbcType=TIMESTAMP},
       work_place = #{workPlace,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = now(),
+      update_time = now(),
       active = #{active,jdbcType=INTEGER},
       login_id = #{loginId,jdbcType=BIGINT}
     where work_id = #{workId,jdbcType=BIGINT}

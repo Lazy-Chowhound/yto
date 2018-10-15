@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/logs/ev_cmdb/2018-10-10/debug-log.log" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/sql/schema_01.sql" charset="GBK" />
   </component>
 </project>

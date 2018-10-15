@@ -2,14 +2,13 @@ package yto.net.cn.service;
 
 import yto.net.cn.bean.YtoLogin;
 
-public interface YtoLoginService {
-
+public interface YtoSearchByPhonePass {
     /**
-     * 根据电话号码和密码登陆
+     * 根据手机号和密码查询
      *
      * @param phone
      * @param password
      * @return
      */
-    YtoLogin login(String phone, String password);
+    YtoLogin searchByPhonePass(String phone, String password);
 }
