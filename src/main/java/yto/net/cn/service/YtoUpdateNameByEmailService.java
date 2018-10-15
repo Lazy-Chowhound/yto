@@ -2,7 +2,7 @@ package yto.net.cn.service;
 
 import yto.net.cn.bean.YtoLogin;
 
-public interface YtoUpdateNameByEmail {
+public interface YtoUpdateNameByEmailService {
     /**
      * 根据邮箱修改用户名
      *
@@ -10,5 +10,5 @@ public interface YtoUpdateNameByEmail {
      * @param email
      * @return
      */
-    YtoLogin updateNameByEmail(String name, String email);
+    int updateNameByEmail(String name, String email);
 }

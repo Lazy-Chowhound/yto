@@ -2,7 +2,7 @@ package yto.net.cn.service;
 
 import yto.net.cn.bean.YtoLogin;
 
-public interface YtoUpdatePassByPhone {
+public interface YtoUpdatePassByPhoneService {
     /**
      * 根据手机号修改密码
      *
@@ -10,5 +10,5 @@ public interface YtoUpdatePassByPhone {
      * @param phone
      * @return
      */
-    YtoLogin updatePassByPhone(String password, String phone);
+    int updatePassByPhone(String password, String phone);
 }

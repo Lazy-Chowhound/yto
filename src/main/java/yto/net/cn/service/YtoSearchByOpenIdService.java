@@ -2,7 +2,7 @@ package yto.net.cn.service;
 
 import yto.net.cn.bean.YtoLogin;
 
-public interface YtoSearchByOpenId {
+public interface YtoSearchByOpenIdService {
     /**
      * 根据wechat_openid查询
      *

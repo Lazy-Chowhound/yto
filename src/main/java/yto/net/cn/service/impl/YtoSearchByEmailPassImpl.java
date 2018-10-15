@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import yto.net.cn.bean.YtoLogin;
 import yto.net.cn.dao.YtoLoginDao;
+import yto.net.cn.service.YtoSearchByEmailPassService;
 
 @Service
-public class YtoSearchByEmailPassImpl implements yto.net.cn.service.YtoSearchByEmailPass {
+public class YtoSearchByEmailPassImpl implements YtoSearchByEmailPassService {
 
     @Autowired
     private YtoLoginDao ytoLoginDao;

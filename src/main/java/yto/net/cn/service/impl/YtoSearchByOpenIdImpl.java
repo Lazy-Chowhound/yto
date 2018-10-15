@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import yto.net.cn.bean.YtoLogin;
 import yto.net.cn.dao.YtoLoginDao;
-import yto.net.cn.service.YtoSearchByOpenId;
+import yto.net.cn.service.YtoSearchByOpenIdService;
 
 @Service
-public class YtoSearchByOpenIdImpl implements YtoSearchByOpenId {
+public class YtoSearchByOpenIdImpl implements YtoSearchByOpenIdService {
 
     @Autowired
     private YtoLoginDao ytoLoginDao;

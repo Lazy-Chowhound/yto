@@ -2,7 +2,7 @@ package yto.net.cn.service;
 
 import yto.net.cn.bean.YtoLogin;
 
-public interface YtoUpdateNameByPhone {
+public interface YtoUpdateNameByPhoneService {
     /**
      * 根据手机号修改用户名
      *
@@ -10,5 +10,5 @@ public interface YtoUpdateNameByPhone {
      * @param phone
      * @return
      */
-    YtoLogin updateNameByPhone(String name, String phone);
+    int updateNameByPhone(String name, String phone);
 }

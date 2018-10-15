@@ -1,8 +1,7 @@
 package yto.net.cn.service;
 
-import yto.net.cn.bean.YtoLogin;
 
-public interface YtoUpdateHeaderUrlById {
+public interface YtoUpdateHeaderUrlByIdService {
     /**
      * 根据id修改头像url
      *
@@ -10,5 +9,5 @@ public interface YtoUpdateHeaderUrlById {
      * @param id
      * @return
      */
-    YtoLogin updateHeaderUrlById(String header_url, int id);
+    int updateHeaderUrlById(String header_url, int id);
 }

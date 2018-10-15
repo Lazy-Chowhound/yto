@@ -71,7 +71,7 @@ public interface YtoLoginDao {
      * @param phone
      * @return
      */
-    YtoLogin updatePassByPhone(@Param("password") String password, @Param("phone") String phone);
+    int updatePassByPhone(@Param("password") String password, @Param("phone") String phone);
 
     /**
      * 根据邮箱修改密码
@@ -80,7 +80,7 @@ public interface YtoLoginDao {
      * @param email
      * @return
      */
-    YtoLogin updatePassByEmail(@Param("password") String password, @Param("email") String email);
+    int updatePassByEmail(@Param("password") String password, @Param("email") String email);
 
     /**
      * 根据手机号修改用户名
@@ -89,7 +89,7 @@ public interface YtoLoginDao {
      * @param phone
      * @return
      */
-    YtoLogin updateNameByPhone(@Param("name") String name, @Param("phone") String phone);
+    int updateNameByPhone(@Param("name") String name, @Param("phone") String phone);
 
     /**
      * 根据邮箱修改用户名
@@ -98,7 +98,7 @@ public interface YtoLoginDao {
      * @param email
      * @return
      */
-    YtoLogin updateNameByEmail(@Param("name") String name, @Param("email") String email);
+    int updateNameByEmail(@Param("name") String name, @Param("email") String email);
 
     /**
      * 根据手机号和密码修改邮箱
@@ -108,7 +108,7 @@ public interface YtoLoginDao {
      * @param password
      * @return
      */
-    YtoLogin updateEmailByPhonePass(@Param("email") String email, @Param("phone") String phone, @Param("password") String password);
+    int updateEmailByPhonePass(@Param("email") String email, @Param("phone") String phone, @Param("password") String password);
 
     /**
      * 根据邮箱和密码修改手机号
@@ -118,7 +118,7 @@ public interface YtoLoginDao {
      * @param password
      * @return
      */
-    YtoLogin updatePhoneByEmailPass(@Param("phone") String phone, @Param("email") String email, @Param("password") String password);
+    int updatePhoneByEmailPass(@Param("phone") String phone, @Param("email") String email, @Param("password") String password);
 
     /**
      * 根据id修改头像url
@@ -127,6 +127,5 @@ public interface YtoLoginDao {
      * @param id
      * @return
      */
-    YtoLogin updateHeaderUrlById(@Param("header_url") String header_url, @Param("id") int id);
-
+    int updateHeaderUrlById(@Param("header_url") String header_url, @Param("id") int id);
 }

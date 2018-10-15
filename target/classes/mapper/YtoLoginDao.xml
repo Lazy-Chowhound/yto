@@ -398,21 +398,21 @@
     <update id="updatePassByEmail" parameterType="string">
         update yto_login
         set login_password = #{password,jdbcType=VARCHAR}
-        where email = #{email}
+        where login_email = #{email}
     </update>
 
     <!--根据手机号修改用户名-->
     <update id="updateNameByPhone" parameterType="string">
         update yto_login
         set login_username = #{name,jdbcType = VARCHAR}
-        where phone = #{phone}
+        where login_phone_number = #{phone}
     </update>
 
     <!--根据邮箱修改用户名-->
     <update id="updateNameByEmail" parameterType="string">
         update yto_login
         set login_username = #{name,jdbcType = VARCHAR}
-        where email = #{email}
+        where login_email = #{email}
     </update>
 
     <!--根据手机号和密码修改邮箱-->
@@ -432,9 +432,9 @@
     </update>
 
     <!--根据id修改头像url-->
-    <update id="updateHeaderUrlById" parameterType="string">
+    <update id="updateHeaderUrlById">
         update yto_login
         set header_url = #{header_url,jdbcType = VARCHAR}
-        where id = #{id}
+        where login_id = #{id,jdbcType = BIGINT}
     </update>
 </mapper>

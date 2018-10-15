@@ -2,14 +2,14 @@ package yto.net.cn.service;
 
 import yto.net.cn.bean.YtoLogin;
 
-public interface YtoUpdateEmailByPhonePass {
+public interface YtoUpdatePhoneByEmailPassService {
     /**
      * 根据邮箱和密码修改手机号
      *
-     * @param email
      * @param phone
+     * @param email
      * @param password
      * @return
      */
-    YtoLogin updateEmailPhonePass(String email, String phone, String password);
+    int updatePhoneByEmailPass(String phone, String email, String password);
 }
